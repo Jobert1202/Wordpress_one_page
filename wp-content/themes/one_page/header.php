@@ -1,26 +1,35 @@
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
 <header>
-  <div class="wrapper">
-    <div class="wrapper-logo">
-      <a href="<?php echo esc_url(home_url('/')); ?>">
-        <img src="https://www.thewitcher.com/build/images/tw3-logo-light-en@2x-e2333fc8..png" alt="<?php bloginfo('name'); ?>" class="logo-img">
-      </a>
+    <div class="wrapper">
+        <div class="wrapper-logo">
+            <a href="#Home">
+                <img src="<?php echo get_field('logo_image', 'option'); ?>" alt="Logo">
+            </a>
+        </div>
+        <div class="wrapper-hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
-
-    <!-- hamburger (pouze mobil) -->
-    <div class="wrapper-hamburger" aria-label="menu toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <!-- jednoduchá nav (js pracuje s elementem <nav>) -->
     <nav>
-      <a href="#Home">Home</a>
-      <a href="#Section_1">Open world</a>
-      <a href="#Section_2">Monster hunter</a>
-      <a href="#Section_3">Story</a>
+        <?php
+        if ( has_nav_menu('onepage_menu') ) {
+            wp_nav_menu([
+                'theme_location' => 'onepage_menu',
+                'container' => false,
+                'items_wrap' => '%3$s'
+            ]);
+        } else {
+            echo '<a href="#Home">Home</a>';
+        }
+        ?>
     </nav>
-  </div>
 </header>
-
-<main>

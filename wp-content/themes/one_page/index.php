@@ -1,60 +1,84 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-    <head>
-        <meta charset="<?php bloginfo( 'charset' ); ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php wp_title() ?></title>
-        
-        <?php wp_head(); ?>
-    </head>
+<?php get_header(); ?>
 
+<?php
+if ( have_posts() ) :
+    while ( have_posts() ) : the_post(); 
+
+    // --- Home ---
+    $home_image = get_field('home_image');
+    ?>
+    <section id="Home" style="background-image: url('<?php echo esc_url($home_image); ?>');">
+        <div class="home-wrapper">
+            <h1><?php the_field('home_title'); ?></h1>
+            <div class="button">
+                <a href="<?php the_field('home_buy_link'); ?>"><button><?php the_field('home_buy_text'); ?></button></a>
+                <a href="<?php the_field('home_trailer_link'); ?>"><button><?php the_field('home_trailer_text'); ?></button></a>
+            </div>
+        </div>
+    </section>
 
     <?php
-        /**
-         * The main template file
-         */
+    // --- Section 1 ---
+    $section1_image = get_field('section1_image');
+    ?>
+    <section id="Section_1" style="background-image: url('<?php echo esc_url($section1_image); ?>');">
+        <div class="container">
+            <div class="article">
+                <div class="article-title"><h1><?php the_field('section1_title'); ?></h1></div>
+                <div class="article-content"><p><?php the_field('section1_content'); ?></p></div>
+            </div>
+        </div>
+    </section>
 
-        get_header(); // Načte header.php
-        ?>
+    <?php
+    // --- Section 2 ---
+    $section2_image = get_field('section2_image');
+    ?>
+    <section id="Section_2" style="background-image: url('<?php echo esc_url($section2_image); ?>');">
+        <div class="container">
+            <div class="article">
+                <div class="article-title"><h1><?php the_field('section2_title'); ?></h1></div>
+                <div class="article-content"><p><?php the_field('section2_content'); ?></p></div>
+            </div>
+        </div>
+    </section>
 
-        <main id="primary" class="site-main">
-            <?php
-            if (have_posts()) :
-                while (have_posts()) :
-                    the_post();
-                    ?>
-                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                        <header class="entry-header">
-                            <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-                        </header>
+    <?php
+    // --- Section 3 ---
+    $section3_image = get_field('section3_image');
+    ?>
+    <section id="Section_3" style="background-image: url('<?php echo esc_url($section3_image); ?>');">
+        <div class="container">
+            <div class="article">
+                <div class="article-title"><h1><?php the_field('section3_title'); ?></h1></div>
+                <div class="article-content"><p><?php the_field('section3_content'); ?></p></div>
+            </div>
+        </div>
+    </section>
 
-                        <div class="entry-content">
-                            <?php the_content(); ?>
-                        </div>
-                    </article>
+    <?php
+    // --- Footer ---
+    ?>
+    <section id="Footer" class="footer-section">
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p><?php the_field('footer_text'); ?></p>
+                <div class="footer-links">
                     <?php
-                endwhile;
+                    if ( has_nav_menu('onepage_menu') ) {
+                        wp_nav_menu([
+                            'theme_location' => 'onepage_menu',
+                            'container' => false,
+                            'items_wrap' => '%3$s'
+                        ]);
+                    }
+                    ?>
+                </div>
+            </div>
+        </footer>
+    </section>
 
-                // Navigace mezi příspěvky
-                the_posts_navigation();
+    <?php endwhile;
+endif; ?>
 
-            else :
-                ?>
-                <article class="no-results">
-                    <header class="entry-header">
-                        <h1 class="entry-title">Nic nenalezeno</h1>
-                    </header>
-                    <div class="entry-content">
-                        <p>Bohužel, nic nebylo nalezeno.</p>
-                    </div>
-                </article>
-                <?php
-            endif;
-            ?>
-        </main>
-
-        <?php
-        get_footer(); // Načte footer.php
-        ?>
-    </body>
-</html>
+<?php get_footer(); ?>

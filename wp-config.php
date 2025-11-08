@@ -20,7 +20,7 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wordpress_2' );
+define( 'DB_NAME', 'wordpress' );
 
 /** Database username */
 define( 'DB_USER', 'root' );
@@ -36,6 +36,10 @@ define( 'DB_CHARSET', 'utf8mb4' );
 
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
+
+define('WP_HOME', 'http://localhost');
+define('WP_SITEURL', 'http://localhost');
+
 
 /**#@+
  * Authentication unique keys and salts.
@@ -85,11 +89,17 @@ $table_prefix = 'wp_';
  *
  * @link https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/
  */
-define( 'WP_DEBUG', false );
+
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
+
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-
+if (ini_get('zlib.output_compression')) {
+    ini_set('zlib.output_compression', '0');
+}
 
 /* That's all, stop editing! Happy publishing. */
 

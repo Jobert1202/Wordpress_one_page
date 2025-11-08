@@ -1,4 +1,6 @@
 <?php get_header(); ?>
-    <h1>Stránka nenalezena</h1>
-    <p>Omlouváme se, ale požadovaná stránka neexistuje.</p>
+
+<h1><?php the_title(); ?></h1>
+<?php the_content(); ?>
+
 <?php get_footer(); ?>
