@@ -14,3 +14,10 @@
 [08-Nov-2025 22:15:58 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\Users\reley\Wordpress_one_page\wp-includes\functions.php on line 5471
 [08-Nov-2025 22:16:22 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\Users\reley\Wordpress_one_page\wp-includes\functions.php on line 5471
 [08-Nov-2025 22:16:22 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\Users\reley\Wordpress_one_page\wp-includes\functions.php on line 5471
+[09-Nov-2025 12:53:48 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Nemohlo být vytvořeno žádné připojení, protože cílový počítač je aktivně odmítl in C:\Users\reley\Wordpress_one_page\wp-includes\class-wpdb.php on line 1988
+[09-Nov-2025 12:53:53 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Nemohlo být vytvořeno žádné připojení, protože cílový počítač je aktivně odmítl in C:\Users\reley\Wordpress_one_page\wp-includes\class-wpdb.php on line 1988
+[09-Nov-2025 12:53:54 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Nemohlo být vytvořeno žádné připojení, protože cílový počítač je aktivně odmítl in C:\Users\reley\Wordpress_one_page\wp-includes\class-wpdb.php on line 1988
+[09-Nov-2025 12:53:54 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Nemohlo být vytvořeno žádné připojení, protože cílový počítač je aktivně odmítl in C:\Users\reley\Wordpress_one_page\wp-includes\class-wpdb.php on line 1988
+[09-Nov-2025 12:53:59 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Nemohlo být vytvořeno žádné připojení, protože cílový počítač je aktivně odmítl in C:\Users\reley\Wordpress_one_page\wp-includes\class-wpdb.php on line 1988
+[09-Nov-2025 12:56:07 UTC] Automatic updates starting...
+[09-Nov-2025 12:56:07 UTC] Automatic updates complete.

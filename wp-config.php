@@ -29,7 +29,7 @@ define( 'DB_USER', 'root' );
 define( 'DB_PASSWORD', 'root' );
 
 /** Database hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', '127.0.0.1:3306' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
@@ -97,9 +97,12 @@ define('WP_DEBUG_DISPLAY', false);
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-if (ini_get('zlib.output_compression')) {
-    ini_set('zlib.output_compression', '0');
+while (ob_get_level()) {
+    ob_end_clean();
 }
+ini_set('output_buffering', 'off');
+ini_set('zlib.output_compression', '0');
+
 
 /* That's all, stop editing! Happy publishing. */
 
